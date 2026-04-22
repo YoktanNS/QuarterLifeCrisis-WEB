@@ -11,11 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('ap_criteria_scores', function (Blueprint $table) {
+        Schema::create('recommendation_results', function (Blueprint $table) {
         $table->id();
+        $table->foreignId('assessment_id')->constrained()->cascadeOnDelete();
         $table->foreignId('action_plan_id')->constrained('action_plans')->cascadeOnDelete();
-        $table->foreignId('criterion_id')->constrained('criteria')->cascadeOnDelete();
-        $table->decimal('score', 8, 2); // Nilai asli yang diberikan oleh pakar/peneliti
+        $table->decimal('saw_score', 8, 4); // Nilai akhir perhitungan SAW, butuh 4 desimal agar akurat
+        $table->integer('rank'); // Peringkat 1, 2, 3...
         $table->timestamps();
         });
     }
@@ -25,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('ap_criteria_scores');
+        Schema::dropIfExists('recommendation_results');
     }
 };

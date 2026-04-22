@@ -18,7 +18,7 @@ return new class extends Migration
         $table->enum('type', ['benefit', 'cost']); // Sangat penting untuk rumus normalisasi SAW nanti
         $table->decimal('weight', 5, 2); // Bobot kriteria, misal 0.30 (30%)
         $table->timestamps();
-    });
+        });
     }
 
     /**

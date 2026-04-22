@@ -11,12 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('user_profiles', function (Blueprint $table) {
+        Schema::create('sus_assessments', function (Blueprint $table) {
         $table->id();
         $table->foreignId('user_id')->constrained()->cascadeOnDelete();
-        $table->integer('age')->nullable();
-        $table->enum('gender', ['L', 'P'])->nullable();
-        $table->string('occupation')->nullable(); 
+        // Looping untuk membuat 10 kolom pertanyaan SUS (q1 sampai q10)
+        for ($i = 1; $i <= 10; $i++) {
+            $table->integer('q'.$i); // Akan menampung skor 1 sampai 5
+        }
+        $table->decimal('total_score', 5, 2); // Skor akhir SUS (skala 0-100)
         $table->timestamps();
         });
     }
@@ -26,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('user_profiles');
+        Schema::dropIfExists('sus_assessments');
     }
 };

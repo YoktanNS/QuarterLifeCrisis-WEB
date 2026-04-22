@@ -11,11 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('symptoms', function (Blueprint $table) {
+        Schema::create('assessment_answers', function (Blueprint $table) {
         $table->id();
-        $table->foreignId('category_id')->constrained('symptom_categories')->cascadeOnDelete();
-        $table->string('code', 10)->unique(); // G01, G02, dst
-        $table->text('statement'); // Pernyataan kuesioner
+        $table->foreignId('assessment_id')->constrained()->cascadeOnDelete();
+        $table->foreignId('symptom_id')->constrained('symptoms')->cascadeOnDelete();
         $table->timestamps();
         });
     }
@@ -25,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('symptoms');
+        Schema::dropIfExists('assessment_answers');
     }
 };

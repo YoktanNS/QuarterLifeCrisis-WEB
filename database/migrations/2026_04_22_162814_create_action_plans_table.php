@@ -19,7 +19,7 @@ return new class extends Migration
         // Kita hubungkan ke QLC Level agar rekomendasi yang muncul sesuai dengan tingkat krisisnya
         $table->foreignId('qlc_level_id')->constrained('qlc_levels')->cascadeOnDelete();
         $table->timestamps();
-    });
+        });
     }
 
     /**

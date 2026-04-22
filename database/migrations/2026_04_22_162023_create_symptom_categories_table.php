@@ -16,7 +16,7 @@ return new class extends Migration
         $table->string('name'); // Contoh: Kebingungan Identitas Diri
         $table->text('description')->nullable();
         $table->timestamps();
-    });
+        });
     }
 
     /**

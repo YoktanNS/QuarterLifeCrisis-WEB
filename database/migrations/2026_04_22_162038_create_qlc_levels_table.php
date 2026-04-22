@@ -18,7 +18,7 @@ return new class extends Migration
         $table->text('description');
         $table->text('referral_message')->nullable(); // Pesan rujukan ke psikolog jika Berat
         $table->timestamps();
-    });
+        });
     }
 
     /**

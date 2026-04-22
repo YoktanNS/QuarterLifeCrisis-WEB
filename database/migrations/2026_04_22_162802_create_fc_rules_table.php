@@ -18,7 +18,7 @@ return new class extends Migration
         // Relasi ke tabel Gejala (Fakta)
         $table->foreignId('symptom_id')->constrained('symptoms')->cascadeOnDelete();
         $table->timestamps();
-    });
+        });
     }
 
     /**
