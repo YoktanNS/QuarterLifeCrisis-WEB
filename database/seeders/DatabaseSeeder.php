@@ -21,5 +21,17 @@ class DatabaseSeeder extends Seeder
             'name' => 'Test User',
             'email' => 'test@example.com',
         ]);
+
+
+        $this->call([
+        SymptomCategorySeeder::class,
+        SymptomSeeder::class,
+        QlcLevelSeeder::class,
+
+        FcRuleSeeder::class,
+        CriterionSeeder::class,
+        ActionPlanSeeder::class,
+        ApCriteriaScoreSeeder::class,
+        ]);
     }
 }
