@@ -4,8 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AssessmentController;
 
 Route::get('/', function () {
-    return redirect()->route('assessment.index');
-});
+    return view('landing');
+})->name('home');
 
 // Grup Rute untuk fitur Tes QLC
 Route::prefix('tes-qlc')->name('assessment.')->group(function () {
